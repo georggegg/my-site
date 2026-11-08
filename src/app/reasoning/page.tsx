@@ -12,10 +12,6 @@ export const metadata = { title: "Reasoning & Uncertainty Service" };
  * the answer your API gave moments earlier. Everything else on the page is
  * for humans: the tables and views that show WHY each number is right.
  *
- * The wiring ships with the template. Your job when you take on Challenge 2:
- * run supabase/reasoning.sql, build the decide route, then make this page
- * yours. The TODO(yours) comments mark the sentences to rewrite in your own
- * words; the build guide (course book, end of Lane 2) explains every part.
  */
 
 // Freshness contract: without this line, Next.js may serve a cached copy of
@@ -45,10 +41,10 @@ export default async function ReasoningPage() {
         Lane 2 · live decision service
       </p>
       <h1 className="mt-3 text-4xl font-bold">My Reasoning &amp; Uncertainty Service</h1>
-      {/* TODO(yours): one sentence, your words, on what this service does. */}
       <p className="mt-4 max-w-prose text-muted">
-        Below is the most recent problem my API solved, for each of the three problem types it
-        speaks. Every number on this page comes from the same live data my API answered with.
+        My service checks whether a conclusion follows from a rule and calculates
+        probabilities and average payoffs. Below are its latest saved answers, with
+        the work behind each one.
       </p>
 
       {/* ── Latest syllogism audit ─────────────────────────────────────── */}
@@ -73,13 +69,12 @@ export default async function ReasoningPage() {
                 <span className="text-muted"> ({syllogism.answer.fallacy})</span>
               )}
             </p>
-            {/* TODO(yours): rewrite this explanation so it sounds like you (Station 2.1). */}
             <p className="mt-2 max-w-prose text-sm text-muted">
-              How the service decided: it ignores the story and reads only the shape of
-              the argument. The rule promises that the if-part brings the then-part, so
-              only two observations prove anything: the if-part being true, or the
-              then-part being false. Every other shape proves nothing, no matter how
-              believable the story feels.
+              If A guarantees B, observing A lets us conclude B, and observing that B
+              did not happen rules out A. Seeing B alone does not prove A caused it;
+              B could have happened another way. Likewise, the absence of A does not
+              rule out B. The service uses the supplied logic labels to check these
+              patterns.
             </p>
           </div>
         ) : (
@@ -107,8 +102,12 @@ export default async function ReasoningPage() {
                 {Number(plausibility.answer.posterior).toFixed(3)}
               </strong>
             </p>
-            {/* TODO(yours): one sentence a manager could read, e.g. what this
-                posterior means for the flagged case (Station 2.3). */}
+            <p className="mt-2 max-w-prose text-sm text-muted">
+              With the rates given in this problem, a flagged case has a{" "}
+              {(Number(plausibility.answer.posterior) * 100).toFixed(1)}% chance of
+              actually having the condition. A flag is a reason to investigate;
+              it is not proof on its own.
+            </p>
           </div>
         ) : (
           <p className="mt-3 text-muted">No plausibility probe yet.</p>
@@ -139,8 +138,11 @@ export default async function ReasoningPage() {
                 {Number(bernoulli.answer.probabilityStatement).toFixed(2)}
               </span>
             </p>
-            {/* TODO(yours): one sentence on what the expected payoff does and
-                does not promise (Station 2.4). */}
+            <p className="mt-2 max-w-prose text-sm text-muted">
+              The expected payoff weights each possible payoff by its chance of
+              happening. It describes the average over many repetitions with the
+              same odds, not a guaranteed result on the next attempt.
+            </p>
           </div>
         ) : (
           <p className="mt-3 text-muted">No Bernoulli probe yet.</p>

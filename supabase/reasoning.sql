@@ -30,3 +30,6 @@ create policy "anyone can insert" on public.reasoning_latest
   for insert with check (true);
 create policy "anyone can update" on public.reasoning_latest
   for update using (true);
+
+-- Allow the website to read and save answers through the Data API.
+grant select, insert, update on public.reasoning_latest to anon;
