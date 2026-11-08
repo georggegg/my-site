@@ -45,7 +45,7 @@ button, a { touch-action: manipulation; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #00a6b5; outline-offset: 4px; }
 .skip-link { position: fixed; top: -80px; left: 260px; z-index: 100; padding: 12px 20px; background: white; color: #202938; }
 .skip-link:focus { top: 12px; }
-.dashboard-sidebar { position: fixed; inset: 0 auto 0 0; width: 240px; z-index: 40; display: flex; flex-direction: column; background: #3b659e; color: #fff; }
+.dashboard-sidebar { position: fixed; inset: 0 auto 0 0; width: 240px; z-index: 40; display: flex; flex-direction: column; background: #00539f; color: #fff; }
 .sidebar-brand { display: flex; align-items: center; gap: 11px; padding: 30px 22px 32px; font-size: 18px; font-weight: 650; letter-spacing: -.4px; }
 .sidebar-brand small { display: block; color: #e2eaf5; font-size: 11px; font-weight: 400; margin-top: 3px; letter-spacing: .15px; }
 .brand-mark { display: grid; place-items: center; border: 1px solid #ffffff55; border-radius: 9px; width: 34px; height: 36px; flex-shrink: 0; }
@@ -112,7 +112,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 .service-card > p { color: var(--muted); font-size: 12px; margin: 10px 0 18px; max-width: 390px; min-height: 40px; }
 .service-meta { border-top: 1px solid #edf0f5; padding: 11px 0; color: #69788e; font-size: 9px; letter-spacing: 1px; display: flex; justify-content: space-between; }
 .service-meta span { letter-spacing: 0; font-size: 10px; }
-.service-live { border-top: 3px solid #3b659e; padding-top: 18px; }
+.service-live { border-top: 3px solid #00539f; padding-top: 18px; }
 .guestbook-content > form { border-radius: 8px; }
 .guestbook-entries { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; max-height: 300px; overflow: auto; margin-top: 14px; padding: 2px; }
 .guestbook-entries li { background: white; overflow-wrap: anywhere; border-radius: 7px; }

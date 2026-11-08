@@ -54,7 +54,7 @@ export interface Palette {
 
 export const PALETTES: Record<string, Palette> = {
   workspace: {
-    paper: "#f5f7fb",
+    paper: "#fcfcfc",
     surface: "#ffffff",
     ink: "#202938",
     muted: "#606d80",
