@@ -26,8 +26,8 @@ export function TwoWayTable({
   const head = "border border-line bg-surface px-3 py-2 text-left font-semibold";
 
   return (
-    <figure className="mt-4">
-      <table className="w-full border-collapse text-sm">
+    <figure className="mt-4 probability-table">
+      <div className="table-scroll"><table className="w-full border-collapse text-sm">
         <thead>
           <tr>
             <th className={head}>Out of {N.toLocaleString()} cases</th>
@@ -47,7 +47,7 @@ export function TwoWayTable({
             <td className={cell}>{truePassed.toLocaleString()}</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <figcaption className="mt-2 text-sm text-muted">
         The flag arrived, so only the &ldquo;Flagged&rdquo; column matters now:{" "}
         {trueFlagged.toLocaleString()} real cases out of {flaggedTotal.toLocaleString()} flags in

@@ -10,18 +10,19 @@
  */
 
 /** ── 1. Pick your palette ──────────────────────────────────────────────
- * One word from: "regatta" | "dune" | "orchard" | "noir"
+ * One word from: "workspace" | "regatta" | "dune" | "orchard" | "noir"
  * (Or invent your own: copy a palette below, change the colors, name it.)
  */
-export const paletteChoice = "regatta";
+export const paletteChoice = "workspace";
 
 /** ── 2. Pick your font pairing ─────────────────────────────────────────
- * One word from: "editorial" | "geometric" | "classic"
+ * One word from: "interface" | "editorial" | "geometric" | "classic"
+ *   interface — Inter throughout (dashboard feel)
  *   editorial — expressive serif headings, clean body (magazine feel)
  *   geometric — modern grotesk headings (tech/startup feel)
  *   classic   — high-contrast serif headings (timeless feel)
  */
-export const fontChoice = "editorial";
+export const fontChoice = "interface";
 
 /** ── 3. (Optional) Override the accent ─────────────────────────────────
  * Set to any CSS color (e.g. "#c2410c" or "rebeccapurple") to replace the
@@ -52,6 +53,15 @@ export interface Palette {
 }
 
 export const PALETTES: Record<string, Palette> = {
+  workspace: {
+    paper: "#f5f7fb",
+    surface: "#ffffff",
+    ink: "#202938",
+    muted: "#606d80",
+    line: "#dfe4ec",
+    accent: "#38649e",
+    accentInk: "#ffffff",
+  },
   /** Deep navy accent on warm paper — nautical, collegiate. */
   regatta: {
     paper: "#faf8f4",
@@ -96,6 +106,7 @@ export const PALETTES: Record<string, Palette> = {
 
 /** Font pairings map to the fonts loaded in src/app/fonts.ts. */
 export const FONT_PAIRINGS: Record<string, { heading: string; body: string }> = {
+  interface: { heading: "var(--font-inter)", body: "var(--font-inter)" },
   editorial: { heading: "var(--font-fraunces)", body: "var(--font-inter)" },
   geometric: { heading: "var(--font-space-grotesk)", body: "var(--font-inter)" },
   classic: { heading: "var(--font-lora)", body: "var(--font-inter)" },

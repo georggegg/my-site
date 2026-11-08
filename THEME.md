@@ -74,3 +74,9 @@ photo, applied everywhere.
 
 The course teaches the underlying eye in Chapter 4 (Make It Yours) and
 Chapter 16 (The Four Stages of Visualization).
+
+## Current design: blue dashboard
+
+The selected `workspace` palette uses white panels on a pale gray background, with a muted blue navigation sidebar. The `interface` font pairing uses Inter for both headings and body text. Teal and gold are secondary accents for result categories.
+
+The shared navigation is in `src/components/DashboardNavigation.tsx`; layout and responsive rules are in `src/app/globals.css`. On narrow screens, the sidebar becomes a collapsible menu and the panels stack. Homepage result cards read the latest saved reasoning results; they are not sample figures.

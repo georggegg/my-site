@@ -36,22 +36,23 @@ export default async function ReasoningPage() {
   }
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-14">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+    <main className="dashboard-page reasoning-dashboard">
+      <p className="eyebrow">
         Lane 2 · live decision service
       </p>
-      <h1 className="mt-3 text-4xl font-bold">My Reasoning &amp; Uncertainty Service</h1>
+      <h1 className="mt-2 dashboard-title">Reasoning &amp; uncertainty</h1>
       <p className="mt-4 max-w-prose text-muted">
         My service checks whether a conclusion follows from a rule and calculates
         probabilities and average payoffs. Below are its latest saved answers, with
         the work behind each one.
       </p>
 
+      <div className="analysis-grid">
       {/* ── Latest syllogism audit ─────────────────────────────────────── */}
-      <section className="mt-12">
-        <h2 className="text-2xl font-bold">Latest syllogism audit</h2>
+      <section className="panel analysis-panel">
+        <h2 className="panel-title">Latest syllogism audit</h2>
         {syllogism ? (
-          <div className="mt-3 max-w-prose">
+          <div className="mt-3">
             <p className="text-muted">
               Rule: if {String(syllogism.problem.rule?.if)}, then{" "}
               {String(syllogism.problem.rule?.then)}.
@@ -60,7 +61,7 @@ export default async function ReasoningPage() {
               {String(syllogism.problem.observation?.statement)}{" "}
               {String(syllogism.problem.conclusion?.statement)}
             </p>
-            <p className="mt-3 text-lg">
+            <p className="result-strip mt-4">
               Verdict:{" "}
               <strong data-reasoning="verdict" className="text-accent">
                 {String(syllogism.answer.verdict)}
@@ -83,8 +84,8 @@ export default async function ReasoningPage() {
       </section>
 
       {/* ── Latest plausibility update ─────────────────────────────────── */}
-      <section className="mt-12">
-        <h2 className="text-2xl font-bold">Latest plausibility update</h2>
+      <section className="panel analysis-panel">
+        <h2 className="panel-title">Latest plausibility update</h2>
         {plausibility ? (
           <div className="mt-3">
             <p className="text-xs font-semibold uppercase tracking-widest text-muted">
@@ -96,7 +97,7 @@ export default async function ReasoningPage() {
               hitRate={Number(plausibility.problem.hitRate)}
               falseAlarmRate={Number(plausibility.problem.falseAlarmRate)}
             />
-            <p className="mt-3 text-lg">
+            <p className="result-strip mt-4">
               Posterior:{" "}
               <strong data-reasoning="posterior" className="text-accent">
                 {Number(plausibility.answer.posterior).toFixed(3)}
@@ -115,8 +116,8 @@ export default async function ReasoningPage() {
       </section>
 
       {/* ── Latest Bernoulli read ──────────────────────────────────────── */}
-      <section className="mt-12">
-        <h2 className="text-2xl font-bold">Latest Bernoulli read: four views</h2>
+      <section className="panel analysis-panel">
+        <h2 className="panel-title">Latest Bernoulli read: four views</h2>
         {bernoulli ? (
           <div className="mt-3">
             <p className="text-xs font-semibold uppercase tracking-widest text-muted">
@@ -128,7 +129,7 @@ export default async function ReasoningPage() {
               onSuccess={Number(bernoulli.problem.payoffs?.onSuccess)}
               onFailure={Number(bernoulli.problem.payoffs?.onFailure)}
             />
-            <p className="mt-4 text-lg">
+            <p className="result-strip mt-4">
               Expected payoff:{" "}
               <strong data-reasoning="expected-value" className="text-accent">
                 {Number(bernoulli.answer.expectedValue).toFixed(2)}
@@ -148,6 +149,7 @@ export default async function ReasoningPage() {
           <p className="mt-3 text-muted">No Bernoulli probe yet.</p>
         )}
       </section>
+      </div>
     </main>
   );
 }

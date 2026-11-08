@@ -59,10 +59,11 @@ export function Guestbook() {
   }
 
   return (
-    <div className="mt-6">
+    <div className="guestbook-content">
       <form onSubmit={sign} className="rounded-xl border border-line bg-surface p-5">
         <div className="flex flex-col gap-3 sm:flex-row">
           <input
+            aria-label="Your name"
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -73,8 +74,9 @@ export function Guestbook() {
             required
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            aria-label="Your message"
             placeholder="Say hello…"
-            className="flex-1 rounded-lg border border-line bg-paper px-3 py-2 text-sm outline-none focus:border-accent"
+            className="min-w-0 flex-1 rounded-lg border border-line bg-paper px-3 py-2 text-sm outline-none focus:border-accent"
           />
           <button
             type="submit"
@@ -93,7 +95,7 @@ export function Guestbook() {
       )}
 
       {entries && entries.length > 0 && (
-        <ul className="mt-5 space-y-3">
+        <ul className="guestbook-entries">
           {entries.map((entry, i) => (
             <li key={`${entry.created_at}-${i}`} className="rounded-xl border border-line p-4">
               <p className="text-sm">{entry.message}</p>

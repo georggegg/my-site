@@ -16,7 +16,7 @@ export function ComingSoon({
   description: string;
 }) {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-14">
+    <main className="dashboard-page">
       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
         Lane {lane} · coming soon
       </p>

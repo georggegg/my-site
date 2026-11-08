@@ -9,8 +9,8 @@ export const metadata = { title: `About — ${profile.displayName}` };
  */
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-14">
-      <div className="flex flex-col gap-10 sm:flex-row">
+    <main className="dashboard-page about-dashboard">
+      <div className="panel about-intro">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={profile.photoPath}
@@ -18,7 +18,7 @@ export default function AboutPage() {
           className="h-56 w-56 shrink-0 rounded-2xl border border-line object-cover"
         />
         <div>
-          <h1 className="text-4xl font-bold">{profile.displayName}</h1>
+          <h1 className="dashboard-title">{profile.displayName}</h1>
           <p className="mt-2 text-lg text-muted">
             From <span className="font-semibold text-ink">{profile.hometown}</span>
           </p>
@@ -26,7 +26,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <section className="mt-12">
+      <section className="panel about-facts">
         <h2 className="text-2xl font-bold">A few fun facts</h2>
         <ul className="mt-4 space-y-2">
           {profile.funFacts.map((fact) => (
@@ -40,7 +40,7 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <section className="mt-12 rounded-xl border border-line bg-surface p-6">
+      <section className="panel about-decision">
         <h2 className="text-xl font-bold">A decision I&apos;m proud of</h2>
         <p className="mt-3 max-w-prose italic text-muted">
           &ldquo;{profile.decisionImProudOf}&rdquo;

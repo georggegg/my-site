@@ -20,7 +20,7 @@ export function BernoulliFourViews({
   const label = "text-xs font-semibold uppercase tracking-widest text-muted";
 
   return (
-    <div className="mt-4 grid gap-4 sm:grid-cols-2">
+    <div className="bernoulli-views mt-4 grid gap-4 sm:grid-cols-2">
       {/* View 1: the table */}
       <div className={box}>
         <p className={label}>Table view</p>
@@ -70,7 +70,7 @@ export function BernoulliFourViews({
               <span className="w-10 shrink-0 tabular-nums text-muted">x = {x}</span>
               <div className="h-5 flex-1 rounded bg-paper">
                 <div
-                  className="h-5 rounded bg-accent"
+                  className={`h-5 rounded ${x === "1" ? "bg-accent" : "probability-bar-secondary"}`}
                   style={{ width: `${Math.round(p * 100)}%` }}
                 />
               </div>

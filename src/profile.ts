@@ -60,7 +60,7 @@ export const profile = {
    * A short bio for your home page: two or three sentences, written like
    * a person, not a resume. What are you studying? What do you care about?
    */
-  bio: "I'm a business analyticsstudent at the University of Delaware learning to make Data-assisted decisions at any scale. I love travelling and learning new things. This site is my working portfolio.",
+  bio: "I'm a business analytics student at the University of Delaware learning to use data to make better decisions. I love travelling and learning new things. This site is my working portfolio.",
 
   /**
    * Your GitHub repo URL. The course platform reads this from /api/health to
