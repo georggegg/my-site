@@ -34,9 +34,11 @@ export default async function SimulatorPage() {
         Stake {stakePct}% each year: it leaves the typical investor best off
       </h1>
       <p className="mt-4 max-w-prose text-muted">
-        My simulator plays the latest game thousands of times for every stake on the list, then
-        recommends the stake whose typical (median) investor ends with the most. Every number on
-        this page comes from the same saved answer my API gave.
+        This simulator evaluates different investment strategies by running thousands of
+        simulations across a range of stake sizes. It identifies the strategy that maximizes the
+        median final balance, focusing on outcomes that are more representative of a typical
+        investor rather than averages influenced by extreme results. All visualizations are
+        generated from the same simulation results used by the API.
       </p>
 
       <section className="panel analysis-panel mt-8">
@@ -83,9 +85,11 @@ export default async function SimulatorPage() {
           recommended={Number(answer.recommendedFraction)}
         />
         <p className="mt-3 max-w-prose text-muted">
-          The biggest stake has the highest average, because a few very lucky investors pull it up,
-          but the typical investor does far worse with it. Staking less each year gives up a little
-          upside in exchange for a much better typical result, and that is the stake I recommend.
+          While larger stakes can produce higher average returns, these figures are often driven by
+          a small number of exceptionally favorable outcomes. The median reveals a different
+          perspective: consistently investing a smaller fraction can lead to stronger long-term
+          results for the typical investor. This highlights the importance of balancing potential
+          returns with the risk of substantial losses.
         </p>
       </section>
 
@@ -98,9 +102,11 @@ export default async function SimulatorPage() {
           className="mt-3 w-full max-w-xl rounded-lg border border-line bg-white p-3"
         />
         <p className="mt-3 max-w-prose text-muted">
-          The coin flip each year is the random part, which my simulator draws over and over. The
-          stake fraction is the rectangle: it is my choice, so the simulator tries every candidate
-          in turn and compares the results.
+          The model distinguishes between two key components: uncertainty and decision-making. Each
+          coin flip represents a random market outcome, while the stake fraction is a controllable
+          decision variable. By simulating each candidate strategy across thousands of possible
+          outcomes, the model compares their performance and identifies the stake size that
+          maximizes the median final balance.
         </p>
       </section>
     </main>
