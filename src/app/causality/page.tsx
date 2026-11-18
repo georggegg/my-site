@@ -43,9 +43,11 @@ export default async function CausalityPage() {
       </h1>
       {/* TODO(yours): one sentence, your words, on what this service does. */}
       <p className="mt-4 max-w-prose text-muted">
-        My auditor reads a dataset and the story behind it, decides which causal structure
-        produced the data, and says whether the pattern is a cause or a coincidence. Every number
-        on this page comes from the same saved answer my API gave.
+        This tool analyzes data alongside its business context to understand how different
+        variables influence one another. It helps distinguish cause-and-effect relationships from
+        misleading correlations and determines when accounting for a third variable is
+        appropriate. The findings displayed are based on the same audit results returned by the
+        API.
       </p>
 
       <section className="panel analysis-panel mt-8">
@@ -99,9 +101,11 @@ export default async function CausalityPage() {
             comparison shows, and why the story about the third variable
             decides which row to trust (Stations 4.4 and 4.5). */}
         <p className="mt-3 max-w-prose text-muted">
-          The top row compares the two groups over all the data. The rows below compare them
-          within each level of {String(ctx.zLabel)}. Which row to trust depends on the story about{" "}
-          {String(ctx.zLabel)}, not on which gap is bigger.
+          The first row shows the overall difference between the two {String(ctx.xLabel)} groups,
+          while the rows below break down that comparison by {String(ctx.zLabel)}. However, the
+          largest difference isn&apos;t necessarily the most meaningful one. Understanding how
+          these variables are connected helps determine whether the observed relationship reflects
+          a real causal effect or is influenced by other factors.
         </p>
       </section>
 
@@ -117,8 +121,8 @@ export default async function CausalityPage() {
             which arrow (or missing arrow) makes it causal or not. */}
         <p className="mt-3 max-w-prose text-muted">
           {answer.causal
-            ? `Changing ${ctx.xLabel} changes ${ctx.yLabel}: an arrow runs from ${ctx.xLabel} to ${ctx.yLabel}, directly or through ${ctx.zLabel}.`
-            : `The gap between the ${ctx.xLabel} groups does not come from an arrow from ${ctx.xLabel} to ${ctx.yLabel}. It comes from ${ctx.zLabel}.`}
+            ? `The diagram shows that ${ctx.xLabel} influences ${ctx.yLabel}, either directly or through ${ctx.zLabel}. This means that changing ${ctx.xLabel} can affect ${ctx.yLabel}, rather than the two variables simply being correlated.`
+            : `The diagram shows no causal path from ${ctx.xLabel} to ${ctx.yLabel}. Any observed relationship between them can instead be explained by a shared cause or by introducing a misleading association when the data is divided according to ${ctx.zLabel}.`}
         </p>
       </section>
     </main>
